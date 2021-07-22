@@ -30,16 +30,6 @@ const Cart = (): JSX.Element => {
     }
   );
 
-  // const cartFormatted = cart.map(product => ({
-  //   // TODO
-  // }))
-  // const total =
-  //   formatPrice(
-  //     cart.reduce((sumTotal, product) => {
-  //       // TODO
-  //     }, 0)
-  //   )
-
   function handleProductIncrement(product: Product) {
     // TODO
   }
@@ -75,12 +65,7 @@ const Cart = (): JSX.Element => {
               </td>
               <td>
                 <strong>{product.title}</strong>
-                <span>
-                  {new Intl.NumberFormat("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(product.price)}
-                </span>
+                <span>{formatPrice(product.price)}</span>
               </td>
               <td>
                 <div>
@@ -130,7 +115,7 @@ const Cart = (): JSX.Element => {
         <Total>
           <span>TOTAL</span>
           {console.log("o que veio do total", total)}
-          <strong>{total.total !== 0 && total.total}</strong>
+          <strong>{total.total !== 0 && formatPrice(total.total)}</strong>
         </Total>
       </footer>
     </Container>
